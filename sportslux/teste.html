@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Show</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+      position: absolute;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      cursor: pointer;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+<div id="slideshow-container">
+  <div class="mySlides">
+    <img src="imgs/r34-1.png" alt="Image 1">
+  </div>
+
+  <div class="mySlides">
+    <img src="imgs/r34-2.png" alt="Image 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="imgs/r34-3.png" alt="Image 3">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+  }
+</script>
+
+</body>
+</html>
